@@ -3,14 +3,15 @@
 local _R = debug.getregistry();
 local _G = _G;
 local cheat_notify = function(x) _G.chat.AddText(_G.Color(240,240,0,255),"g_pHooks| ",_G.Color(240,240,240),x); end;
-local g_pGetTeam = _R.Player.Team
-local g_pInVehicle = _R.Player.InVehicle
-local g_pIsAlive = _R.Player.Alive
-local g_pLocalToWorld = _R.Entity.LocalToWorld
-local g_pGetOBBCenter = _R.Entity.OBBCenter
-local g_GetCenter = function(x) if !x then return; end return g_pLocalToWorld(x,g_pGetOBBCenter(x)); end
-local g_pEyePos = _R.Entity.EyePos
-local g_ToAngles = _R.Vector.Angle
+local g_pGetTeam = _R.Player.Team;
+local g_pInVehicle = _R.Player.InVehicle;
+local g_pIsAlive = _R.Player.Alive;
+local g_pLocalToWorld = _R.Entity.LocalToWorld;
+local g_pGetOBBCenter = _R.Entity.OBBCenter;
+local g_GetCenter = function(x) if !x then return; end return g_pLocalToWorld(x,g_pGetOBBCenter(x)); end;
+local g_pEyePos = _R.Entity.EyePos;
+local g_ToAngles = _R.Vector.Angle;
+local g_pIsDormant = _R.Entity.IsDormant; -- This is going to be in the next Garry's Mod Update
 
 --[[ // Todo: Unload Hooks
 local cheat_hooks = {};
@@ -27,6 +28,8 @@ local g_CalcViewAngle = _G.Angle();
 
 local function g_IsValidTarget(pEnt)
 	if (!pEnt) then return false; end
+	
+	if (g_pIsDormant(pEnt)) then return false; end
 	
 	if pEnt:IsPlayer() then
 		if (pEnt == g_pLocalPlayer) then return false; end
@@ -95,7 +98,7 @@ local function hookAdd(hooked_vfuncname,hooked_nfunc)
 	cheat_notify("Hook Added: "..hooked_vfuncname);
 end
 
-hookAdd("CreateMove",hooked_CreateMove)
-hookAdd("CalcView",hooked_CalcView)
+hookAdd("CreateMove",hooked_CreateMove);
+hookAdd("CalcView",hooked_CalcView);
 
 cheat_notify("Cheat Loaded");
