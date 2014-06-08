@@ -12,6 +12,7 @@ local g_GetCenter = function(x) if !x then return; end return g_pLocalToWorld(x,
 local g_pEyePos = _R.Entity.EyePos;
 local g_ToAngles = _R.Vector.Angle;
 local g_pIsDormant = _R.Entity.IsDormant; -- This is going to be in the next Garry's Mod Update
+local g_pGetWeapon = _R.Player.GetActiveWeapon;
 
 --[[ // Todo: Unload Hooks
 local cheat_hooks = {};
@@ -81,9 +82,9 @@ local function hooked_CreateMove(CUserCmd)
 end
 
 local function hooked_CalcView( ply, origin, angles, fov )
-	local w = g_pLocalPlayer:GetActiveWeapon();
-	if ( w.Primary ) then w.Primary.Recoil = 0.0; end
-	if ( w.Secondary ) then w.Secondary.Recoil = 0.0; end
+	local pWeapon = g_pGetWeapon(g_pLocalPlayer);
+	if ( pWeapon.Primary ) then pWeapon.Primary.Recoil = 0.0; end
+	if ( pWeapon.Secondary ) then pWeapon.Secondary.Recoil = 0.0; end
 	
 	local view = {}
 	view.angles = g_CalcViewAngle;
