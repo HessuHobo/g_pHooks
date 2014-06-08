@@ -11,7 +11,7 @@ local g_pGetOBBCenter = _R.Entity.OBBCenter;
 local g_GetCenter = function(x) if !x then return; end return g_pLocalToWorld(x,g_pGetOBBCenter(x)); end;
 local g_pEyePos = _R.Entity.EyePos;
 local g_ToAngles = _R.Vector.Angle;
-local g_pIsDormant = _R.Entity.IsDormant; -- This is going to be in the next Garry's Mod Update
+local g_pIsDormant = function(x) return false; end; --_R.Entity.IsDormant; -- This is going to be in the next Garry's Mod Update
 local g_pGetWeapon = _R.Player.GetActiveWeapon;
 
 --[[ // Todo: Unload Hooks
