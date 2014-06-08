@@ -1,7 +1,4 @@
---[[
-    Credits:
-    	Fami Harukaze for cleaning all of this sperged code :^) Visit my channel: https://www.youtube.com/user/INTELINSIDECHANNEL
-]]--
+-- https://www.youtube.com/user/INTELINSIDECHANNEL
 
 local _R = debug.getregistry();
 local _G = _G;
