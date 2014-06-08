@@ -85,7 +85,7 @@ local function hooked_CalcView( ply, origin, angles, fov )
 	if ( w.Primary ) then w.Primary.Recoil = 0.0; end
 	if ( w.Secondary ) then w.Secondary.Recoil = 0.0; end
 	
-	local view = /*GAMEMODE:CalcView( ply, origin, calcview_angles, fov ) || */{}
+	local view = {}
 	view.angles = g_CalcViewAngle;
 	view.angles.r = 0;
 	view.vm_angles = view.angles;
