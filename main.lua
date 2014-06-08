@@ -70,7 +70,7 @@ local function g_Aim(CUserCmd)
 	end
 end
 
-local function hooked_CreateMove(CUserCmd, sequence_number, input_sample_frametime, active)
+local function hooked_CreateMove(CUserCmd)
 
 	g_AimbotThread(); -- Search for a target
 
