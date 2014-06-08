@@ -2,7 +2,7 @@
 
 local _R = debug.getregistry();
 local _G = _G;
-local cheat_notify = function(x) _G.chat.AddText(_G.Color(240,240,0,255),"TheAimbotProject| ",_G.Color(240,240,240),x); end;
+local cheat_notify = function(x) _G.chat.AddText(_G.Color(240,240,0,255),"g_pHooks| ",_G.Color(240,240,240),x); end;
 local g_pGetTeam = _R.Player.Team
 local g_pInVehicle = _R.Player.InVehicle
 local g_pIsAlive = _R.Player.Alive
