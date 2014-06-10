@@ -1,4 +1,5 @@
 -- https://www.youtube.com/user/INTELINSIDECHANNEL
+-- hessuhobo was here :DDDDDD ylilauta.org/b
 
 local _R = debug.getregistry();
 local _G = _G;
